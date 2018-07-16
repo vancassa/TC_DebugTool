@@ -78,15 +78,15 @@
 	<Module Id="Module 1">
 		<Input>
 			<VarName>MAIN.bInput1</VarName>
-			<Description></Description>
+			<Description>Input 1</Description>
 		</Input>
 		<Input>
 			<VarName>MAIN.bInput2</VarName>
-			<Description></Description>
+			<Description>Input 2</Description>
 		</Input>
 		<Input>
 			<VarName>MAIN.bInput3</VarName>
-			<Description></Description>
+			<Description>Input 3</Description>
 		</Input>
 		<Input>
 			<VarName>MAIN.bInput4</VarName>
@@ -116,6 +116,7 @@
 			<VarName>MAIN.bOutput5</VarName>
 			<Description></Description>
 		</Output>
+
 	</Module>
 	<Module Id="Module 2">
 		<Input>

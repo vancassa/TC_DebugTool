@@ -296,7 +296,7 @@ namespace Motion_GUI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                MessageBox.Show("Please make sure: \n1.TwinCAT is running \n2.TwinCAT variable names match the \"Variables.xml\" file", "Error");
+                MessageBox.Show("Error loading page.\n\nPlease make sure: \n1.TwinCAT is running \n2.TwinCAT variable names match the \"Variables.xml\" file", "Error");
 
             }
         }

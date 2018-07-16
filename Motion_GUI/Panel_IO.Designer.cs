@@ -36,6 +36,8 @@
             this.releaseValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelInput = new System.Windows.Forms.Panel();
             this.panelOutput = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.contextMenuIO.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,6 +84,7 @@
             // panelInput
             // 
             this.panelInput.AutoScroll = true;
+            this.panelInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelInput.Location = new System.Drawing.Point(21, 60);
             this.panelInput.Name = "panelInput";
             this.panelInput.Size = new System.Drawing.Size(382, 475);
@@ -90,15 +93,38 @@
             // panelOutput
             // 
             this.panelOutput.AutoScroll = true;
+            this.panelOutput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelOutput.Location = new System.Drawing.Point(409, 60);
             this.panelOutput.Name = "panelOutput";
             this.panelOutput.Size = new System.Drawing.Size(382, 475);
             this.panelOutput.TabIndex = 5;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(18, 44);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Input";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(406, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Output";
+            // 
             // Panel_IO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.panelOutput);
             this.Controls.Add(this.panelInput);
             this.Controls.Add(this.cbModule);
@@ -121,5 +147,7 @@
         private System.Windows.Forms.ToolStripMenuItem releaseValueToolStripMenuItem;
         private System.Windows.Forms.Panel panelInput;
         private System.Windows.Forms.Panel panelOutput;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

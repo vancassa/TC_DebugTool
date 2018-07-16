@@ -80,6 +80,8 @@ namespace Motion_GUI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                MessageBox.Show("Error loading page.\n\nPlease make sure: \n1.TwinCAT is running \n2.TwinCAT variable names match the \"Variables.xml\" file", "Error");
+
             }
 
 
@@ -95,11 +97,11 @@ namespace Motion_GUI
                     if (io.value)
                     {
                         //change textbox color to spring green
-                        io.textBox.BackColor = Color.SpringGreen;
+                        io.button.BackColor = Color.SpringGreen;
                     }else
                     {
                         //change textbox color to light gray
-                        io.textBox.BackColor = Color.LightGray;
+                        io.button.BackColor = Color.LightGray;
                     }
                 }
             }
@@ -124,6 +126,8 @@ namespace Motion_GUI
             panelInput.Controls.Clear();
             panelOutput.Controls.Clear();
 
+            int width = 82, height = 52;
+
             if (cbModule.SelectedItem.ToString() == "All")
             {
                 int i = 0, j=0;
@@ -134,41 +138,45 @@ namespace Motion_GUI
                     {
                         if(io.type == 1)
                         {
-                            //add to the left
-                            panelInput.Controls.Add(io.textBox);
-                            io.textBox.BackColor = Color.LightGray;
-                            io.textBox.ForeColor = Color.Black;
-                            io.textBox.BorderStyle = BorderStyle.FixedSingle;
-                            io.textBox.Location = new Point((i % 4) * 88 + 7, (i / 4) * 54 + 20);
-                            io.textBox.Multiline = true;
-                            io.textBox.Name = io.name;
-                            io.textBox.Size = new Size(82, 48);
-                            io.textBox.Cursor = Cursors.Arrow;
-                            if (io.desc != "") io.textBox.Text = io.desc;
-                            else io.textBox.Text = io.name;
-                            io.textBox.ShortcutsEnabled = false;
-                            io.textBox.ReadOnly = true;
-
+                            panelInput.Controls.Add(io.button);
+                            io.button.BackColor = Color.LightGray;
+                            io.button.ForeColor = Color.Black;
+                            io.button.Location = new Point((i % 4) * (width+6) + 7, (i / 4) * (height+6) + 20);
+                            io.button.Name = io.name;
+                            io.button.Size = new Size(width, height);
+                            io.button.FlatStyle = FlatStyle.Flat;
+                            io.button.FlatAppearance.MouseOverBackColor = io.button.BackColor;
+                            io.button.BackColorChanged += (s, err) =>
+                            {
+                                io.button.FlatAppearance.MouseOverBackColor = io.button.BackColor;
+                            };
+                            io.button.TextAlign = ContentAlignment.TopLeft;
+                            io.button.Font = new Font(FontFamily.GenericSansSerif, 7);
+                            if (io.desc != "") io.button.Text = io.desc;
+                            else io.button.Text = io.name;
 
                             i++;                     
                         }
                         else if(io.type == 2)
                         {
-                            //add to the right
-                            panelOutput.Controls.Add(io.textBox);
-                            io.textBox.BackColor = Color.LightGray;
-                            io.textBox.ForeColor = Color.Black;
-                            io.textBox.BorderStyle = BorderStyle.FixedSingle;
-                            io.textBox.Location = new Point((j % 4) * 88 + 7, (j / 4) * 54 + 20);
-                            io.textBox.Multiline = true;
-                            io.textBox.Name = io.name;
-                            io.textBox.Size = new Size(82, 48);
-                            io.textBox.Cursor = Cursors.Arrow;
-                            if (io.desc != "") io.textBox.Text = io.desc;
-                            else io.textBox.Text = io.name;
-                            io.textBox.ReadOnly = true;
+                            panelOutput.Controls.Add(io.button);
+                            io.button.BackColor = Color.LightGray;
+                            io.button.Location = new Point((j % 4) * (width + 6) + 7, (j / 4) * (height + 6) + 20);
+                            io.button.Name = io.name;
+                            io.button.Size = new Size(width, height);
+                            io.button.FlatStyle = FlatStyle.Flat;
+                            io.button.FlatAppearance.MouseOverBackColor = io.button.BackColor;
+                            io.button.BackColorChanged += (s, err) =>
+                            {
+                                io.button.FlatAppearance.MouseOverBackColor = io.button.BackColor;
+                            };
+                            io.button.TextAlign = ContentAlignment.TopLeft;
+                            io.button.Font = new Font(FontFamily.GenericSansSerif, 7);
+                            if (io.desc != "") io.button.Text = io.desc;
+                            else io.button.Text = io.name;
 
-                            io.textBox.ContextMenuStrip = this.contextMenuIO;
+                            io.button.ContextMenuStrip = this.contextMenuIO;
+
                             j++;
                         }
                     }
@@ -177,6 +185,8 @@ namespace Motion_GUI
             else
             {
                 int i = 0, j = 0;
+                
+
                 foreach(Module mod in moduleList)
                 {
                     if(mod.name == cbModule.SelectedItem.ToString())
@@ -186,33 +196,45 @@ namespace Motion_GUI
                             if (io.type == 1)
                             {
                                 //add to the left
-                                panelInput.Controls.Add(io.textBox);
-                                io.textBox.BackColor = Color.LightGray;
-                                io.textBox.Location = new Point((i % 4) * 88 + 7, (i / 4) * 54 + 20);
-                                io.textBox.Multiline = true;
-                                io.textBox.Name = io.name;
-                                io.textBox.Size = new Size(82, 48);
-                                io.textBox.Cursor = Cursors.Arrow;
-                                if (io.desc != "") io.textBox.Text = io.desc;
-                                else io.textBox.Text = io.name;
-                                io.textBox.ShortcutsEnabled = false;
+                                panelInput.Controls.Add(io.button);
+                                io.button.BackColor = Color.LightGray;
+                                io.button.ForeColor = Color.Black;
+                                io.button.Location = new Point((i % 4) * (width + 6) + 7, (i / 4) * (height + 6) + 20);
+                                io.button.Name = io.name;
+                                io.button.Size = new Size(width, height);
+                                io.button.FlatStyle = FlatStyle.Flat;
+                                io.button.FlatAppearance.MouseOverBackColor = io.button.BackColor;
+                                io.button.BackColorChanged += (s, err) =>
+                                {
+                                    io.button.FlatAppearance.MouseOverBackColor = io.button.BackColor;
+                                };
+                                io.button.TextAlign = ContentAlignment.TopLeft;
+                                io.button.Font = new Font(FontFamily.GenericSansSerif, 7);
+                                if (io.desc != "") io.button.Text = io.desc;
+                                else io.button.Text = io.name;
 
                                 i++;
                             }
                             else if (io.type == 2)
                             {
                                 //add to the right
-                                panelOutput.Controls.Add(io.textBox);
-                                io.textBox.BackColor = Color.LightGray;
-                                io.textBox.Location = new Point((j % 4) * 88 + 7, (j / 4) * 54 + 20);
-                                io.textBox.Multiline = true;
-                                io.textBox.Name = io.name;
-                                io.textBox.Size = new Size(82, 48);
-                                io.textBox.Cursor = Cursors.Arrow;
-                                if (io.desc != "") io.textBox.Text = io.desc;
-                                else io.textBox.Text = io.name;
+                                panelOutput.Controls.Add(io.button);
+                                io.button.BackColor = Color.LightGray;
+                                io.button.Location = new Point((j % 4) * (width + 6) + 7, (j / 4) * (height + 6) + 20);
+                                io.button.Name = io.name;
+                                io.button.Size = new Size(82, height);
+                                io.button.FlatStyle = FlatStyle.Flat;
+                                io.button.FlatAppearance.MouseOverBackColor = io.button.BackColor;
+                                io.button.BackColorChanged += (s, err) =>
+                                {
+                                    io.button.FlatAppearance.MouseOverBackColor = io.button.BackColor;
+                                };
+                                io.button.TextAlign = ContentAlignment.TopLeft;
+                                io.button.Font = new Font(FontFamily.GenericSansSerif, 7);
+                                if (io.desc != "") io.button.Text = io.desc;
+                                else io.button.Text = io.name;
 
-                                io.textBox.ContextMenuStrip = this.contextMenuIO;
+                                io.button.ContextMenuStrip = this.contextMenuIO;
                                 j++;
                             }
                         }
@@ -224,49 +246,66 @@ namespace Motion_GUI
 
         private void forceTRUEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToolStripItem menuItem = sender as ToolStripItem;
-            if(menuItem != null)
+            try
             {
-                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
-                if(owner != null)
+                ToolStripItem menuItem = sender as ToolStripItem;
+                if (menuItem != null)
                 {
-                    Control textBox = owner.SourceControl;
-                    foreach(Module mod in moduleList)
+                    ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                    if (owner != null)
                     {
-                        foreach(IO io in mod.ioList)
+                        Control textBox = owner.SourceControl;
+                        foreach (Module mod in moduleList)
                         {
-                            if (io.name == textBox.Name)
+                            foreach (IO io in mod.ioList)
                             {
-                                ioClient.WriteAny(io.handle, true);
-                                return;
+                                if (io.name == textBox.Name)
+                                {
+                                    ioClient.WriteAny(io.handle, true);
+                                    return;
+                                }
                             }
                         }
                     }
                 }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error writing value.\nPlease make sure:\n1. TwinCAT is in Running mode.\n2.Variable type is BOOL.");
+            }
+            
         }
 
         private void releaseValueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToolStripItem menuItem = sender as ToolStripItem;
-            if (menuItem != null)
+            try
             {
-                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
-                if (owner != null)
+                ToolStripItem menuItem = sender as ToolStripItem;
+                if (menuItem != null)
                 {
-                    Control textBox = owner.SourceControl;
-                    foreach (Module mod in moduleList)
+                    ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                    if (owner != null)
                     {
-                        foreach (IO io in mod.ioList)
+                        Control textBox = owner.SourceControl;
+                        foreach (Module mod in moduleList)
                         {
-                            if (io.name == textBox.Name)
+                            foreach (IO io in mod.ioList)
                             {
-                                ioClient.WriteAny(io.handle, false);
-                                return;
+                                if (io.name == textBox.Name)
+                                {
+                                    ioClient.WriteAny(io.handle, false);
+                                    return;
+                                }
                             }
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error writing value.\nPlease make sure:\n1. TwinCAT is in Running mode.\n2.Variable type is BOOL.");
             }
         }
     }
@@ -281,7 +320,7 @@ namespace Motion_GUI
         public string desc;
         public bool value;
         public int type; //1 = input, 2 = output
-        public TextBox textBox = new TextBox();
+        public Button button = new Button();
     }
 
     class Module
