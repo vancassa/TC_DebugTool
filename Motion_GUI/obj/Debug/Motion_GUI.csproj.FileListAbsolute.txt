@@ -1,0 +1,12 @@
+C:\Users\VanessaC.BECKHOFF\Documents\_Documents\Projects\Developed Library\Common Framework\Motion_GUI\Motion_GUI\bin\Debug\Motion_GUI.exe.config
+C:\Users\VanessaC.BECKHOFF\Documents\_Documents\Projects\Developed Library\Common Framework\Motion_GUI\Motion_GUI\bin\Debug\Motion_GUI.exe
+C:\Users\VanessaC.BECKHOFF\Documents\_Documents\Projects\Developed Library\Common Framework\Motion_GUI\Motion_GUI\bin\Debug\Motion_GUI.pdb
+C:\Users\VanessaC.BECKHOFF\Documents\_Documents\Projects\Developed Library\Common Framework\Motion_GUI\Motion_GUI\bin\Debug\TwinCAT.Ads.dll
+C:\Users\VanessaC.BECKHOFF\Documents\_Documents\Projects\Developed Library\Common Framework\Motion_GUI\Motion_GUI\bin\Debug\TwinCAT.Ads.xml
+C:\Users\VanessaC.BECKHOFF\Documents\_Documents\Projects\Developed Library\Common Framework\Motion_GUI\Motion_GUI\obj\Debug\Motion_GUI.csprojResolveAssemblyReference.cache
+C:\Users\VanessaC.BECKHOFF\Documents\_Documents\Projects\Developed Library\Common Framework\Motion_GUI\Motion_GUI\obj\Debug\Motion_GUI.Form1.resources
+C:\Users\VanessaC.BECKHOFF\Documents\_Documents\Projects\Developed Library\Common Framework\Motion_GUI\Motion_GUI\obj\Debug\Motion_GUI.Properties.Resources.resources
+C:\Users\VanessaC.BECKHOFF\Documents\_Documents\Projects\Developed Library\Common Framework\Motion_GUI\Motion_GUI\obj\Debug\Motion_GUI.csproj.GenerateResource.Cache
+C:\Users\VanessaC.BECKHOFF\Documents\_Documents\Projects\Developed Library\Common Framework\Motion_GUI\Motion_GUI\obj\Debug\Motion_GUI.exe
+C:\Users\VanessaC.BECKHOFF\Documents\_Documents\Projects\Developed Library\Common Framework\Motion_GUI\Motion_GUI\obj\Debug\Motion_GUI.pdb
+C:\Users\VanessaC.BECKHOFF\Documents\_Documents\Projects\Developed Library\Common Framework\Motion_GUI\Motion_GUI\obj\Debug\Motion_GUI.frmEnable.resources
