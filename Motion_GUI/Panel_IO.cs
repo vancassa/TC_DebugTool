@@ -14,9 +14,10 @@ namespace Motion_GUI
 {
     public partial class Panel_IO : UserControl
     {
-        TcAdsClient ioClient = new TcAdsClient();
+        //TcAdsClient ioClient = new TcAdsClient();
         List<Module> moduleList = new List<Module>();
         private Timer timer = new Timer();
+        Control activeForm;
         
         public Panel_IO()
         {
@@ -25,13 +26,14 @@ namespace Motion_GUI
 
         private void Panel_IO_Load(object sender, EventArgs e)
         {
+            activeForm = this.FindForm();
             try
             {
-                ioClient.Connect(851);
+                //ioClient.Connect(851);
 
                 //add notification
                 XmlDocument doc = new XmlDocument();
-                doc.Load("Variables.xml");
+                doc.Load("Setup/Variables.xml");
 
                 XmlNode ioNode = doc.SelectSingleNode("/Config/IO");
                 XmlNodeList xmlModuleList = ioNode.SelectNodes("Module");
@@ -49,8 +51,8 @@ namespace Motion_GUI
                         IO io = new IO();
                         io.name = input.SelectSingleNode("VarName").InnerText;
                         io.desc = input.SelectSingleNode("Description").InnerText;
-                        io.notifHandle = ioClient.AddDeviceNotificationEx(io.name, AdsTransMode.OnChange, 100, 100, null, typeof(bool));
-                        io.handle = ioClient.CreateVariableHandle(io.name);
+                        io.notifHandle = ((Form1)activeForm).client.AddDeviceNotificationEx(io.name, AdsTransMode.OnChange, 100, 100, null, typeof(bool));
+                        io.handle = ((Form1)activeForm).client.CreateVariableHandle(io.name);
                         io.type = 1;
                         mod.ioList.Add(io);
                     }
@@ -61,8 +63,8 @@ namespace Motion_GUI
                         IO io = new IO();
                         io.name = output.SelectSingleNode("VarName").InnerText;
                         io.desc = output.SelectSingleNode("Description").InnerText;
-                        io.notifHandle = ioClient.AddDeviceNotificationEx(io.name, AdsTransMode.OnChange, 100, 100, null, typeof(bool));
-                        io.handle = ioClient.CreateVariableHandle(io.name);
+                        io.notifHandle = ((Form1)activeForm).client.AddDeviceNotificationEx(io.name, AdsTransMode.OnChange, 100, 100, null, typeof(bool));
+                        io.handle = ((Form1)activeForm).client.CreateVariableHandle(io.name);
                         io.type = 2;
                         mod.ioList.Add(io);
                     }
@@ -71,7 +73,7 @@ namespace Motion_GUI
                     cbModule.Items.Add(mod.name);
                 }
 
-                ioClient.AdsNotificationEx += new AdsNotificationExEventHandler(onNotification);
+                ((Form1)activeForm).client.AdsNotificationEx += new AdsNotificationExEventHandler(onNotification);
 
                 timer.Interval = 1000;
                 timer.Tick += Timer_Tick;
@@ -261,7 +263,7 @@ namespace Motion_GUI
                             {
                                 if (io.name == textBox.Name)
                                 {
-                                    ioClient.WriteAny(io.handle, true);
+                                    ((Form1)activeForm).client.WriteAny(io.handle, true);
                                     return;
                                 }
                             }
@@ -294,7 +296,7 @@ namespace Motion_GUI
                             {
                                 if (io.name == textBox.Name)
                                 {
-                                    ioClient.WriteAny(io.handle, false);
+                                    ((Form1)activeForm).client.WriteAny(io.handle, false);
                                     return;
                                 }
                             }

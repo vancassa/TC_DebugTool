@@ -14,11 +14,11 @@ namespace Motion_GUI
 {
     public partial class Panel_Axes : UserControl
     {
-        TcAdsClient client = new TcAdsClient();
+        //TcAdsClient client = new TcAdsClient();
 
         public static bool enable, enableFw, enableBw;
         public static double lrOverride;
-
+        public Control activeForm;
 
 
         frmEnable testForm;
@@ -48,97 +48,97 @@ namespace Motion_GUI
 
         private void btnHome_MouseUp(object sender, MouseEventArgs e)
         {
-            client.WriteAny(axes[idxAxis].hdlHome, false);
+            ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlHome, false);
         }
 
         private void btnHome_MouseDown(object sender, MouseEventArgs e)
         {
-            client.WriteAny(axes[idxAxis].hdlHome, true);
+            ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlHome, true);
         }
 
         private void btnReset_MouseUp(object sender, MouseEventArgs e)
         {
-            client.WriteAny(axes[idxAxis].hdlReset, false);
+            ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlReset, false);
         }
 
         private void btnReset_MouseDown(object sender, MouseEventArgs e)
         {
-            client.WriteAny(axes[idxAxis].hdlReset, true);
+            ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlReset, true);
         }
 
         private void btnStop_MouseUp(object sender, MouseEventArgs e)
         {
-            client.WriteAny(axes[idxAxis].hdlStop, false);
+            ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlStop, false);
         }
 
         private void btnStop_MouseDown(object sender, MouseEventArgs e)
         {
-            client.WriteAny(axes[idxAxis].hdlStop, true);
+            ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlStop, true);
         }
 
         private void btnAbsMove_MouseUp(object sender, MouseEventArgs e)
         {
             if (comboFunction.Text == "Move Absolute")
             {
-                client.WriteAny(axes[idxAxis].hdlAbsMove, false);
+                ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlAbsMove, false);
             }
             else if (comboFunction.Text == "Move Relative")
             {
-                client.WriteAny(axes[idxAxis].hdlRelMove, false);
+                ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlRelMove, false);
             }
             else if (comboFunction.Text == "Move Velocity")
             {
-                client.WriteAny(axes[idxAxis].hdlMoveVelo, false);
+                ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlMoveVelo, false);
             }
         }
 
         private void btnJogFw_MouseUp(object sender, MouseEventArgs e)
         {
-            client.WriteAny(axes[idxAxis].hdlJogFw, false);
+            ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlJogFw, false);
         }
 
         private void btnJogFw_MouseDown(object sender, MouseEventArgs e)
         {
-            client.WriteAny(axes[idxAxis].hdlJogFw, true);
+            ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlJogFw, true);
         }
 
         private void btnJogBw_MouseUp(object sender, MouseEventArgs e)
         {
-            client.WriteAny(axes[idxAxis].hdlJogBw, false);
+            ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlJogBw, false);
         }
 
         private void btnJogBw_MouseDown(object sender, MouseEventArgs e)
         {
-            client.WriteAny(axes[idxAxis].hdlJogBw, true);
+            ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlJogBw, true);
         }
         
         private void tabAxis_SelectedIndexChanged(object sender, EventArgs e)
         {
             idxAxis = tabAxis.SelectedIndex;
             //refresh values
-            double temp = (double)client.ReadAny(axes[idxAxis].hdlActPos, typeof(double));
+            double temp = (double)((Form1)activeForm).client.ReadAny(axes[idxAxis].hdlActPos, typeof(double));
             tbActPos.Text = temp.ToString("#0.0000");
-            temp = (double)client.ReadAny(axes[idxAxis].hdlActVelo, typeof(double));
+            temp = (double)((Form1)activeForm).client.ReadAny(axes[idxAxis].hdlActVelo, typeof(double));
             tbActVelo.Text = temp.ToString("#0.0000");
 
-            tbErrId.Text = client.ReadAny(axes[idxAxis].hdlErrId, typeof(uint)).ToString();
-            cbReady.Checked = (bool)client.ReadAny(axes[idxAxis].hdlReady, typeof(bool));
-            cbController.Checked = (bool)client.ReadAny(axes[idxAxis].hdlEnable, typeof(bool));
-            cbFwd.Checked = (bool)client.ReadAny(axes[idxAxis].hdlEnablePos, typeof(bool));
-            cbBwd.Checked = (bool)client.ReadAny(axes[idxAxis].hdlEnableNeg, typeof(bool));
+            tbErrId.Text = ((Form1)activeForm).client.ReadAny(axes[idxAxis].hdlErrId, typeof(uint)).ToString();
+            cbReady.Checked = (bool)((Form1)activeForm).client.ReadAny(axes[idxAxis].hdlReady, typeof(bool));
+            cbController.Checked = (bool)((Form1)activeForm).client.ReadAny(axes[idxAxis].hdlEnable, typeof(bool));
+            cbFwd.Checked = (bool)((Form1)activeForm).client.ReadAny(axes[idxAxis].hdlEnablePos, typeof(bool));
+            cbBwd.Checked = (bool)((Form1)activeForm).client.ReadAny(axes[idxAxis].hdlEnableNeg, typeof(bool));
 
         }
 
         void testFunction(object sender, FormClosedEventArgs e)
         {
-            if (enable) { client.WriteAny(axes[idxAxis].hdlEnable, true); cbController.Checked = true; }
-            else { client.WriteAny(axes[idxAxis].hdlEnable, false); cbController.Checked = false; }
+            if (enable) { ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlEnable, true); cbController.Checked = true; }
+            else { ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlEnable, false); cbController.Checked = false; }
 
-            if (enableFw) { client.WriteAny(axes[idxAxis].hdlEnablePos, true); cbFwd.Checked = true; }
-            else { client.WriteAny(axes[idxAxis].hdlEnablePos, false); cbFwd.Checked = false; }
+            if (enableFw) { ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlEnablePos, true); cbFwd.Checked = true; }
+            else { ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlEnablePos, false); cbFwd.Checked = false; }
 
-            if (enableBw) { client.WriteAny(axes[idxAxis].hdlEnableNeg, true); cbBwd.Checked = true; }
-            else { client.WriteAny(axes[idxAxis].hdlEnableNeg, false); cbBwd.Checked = false; }
+            if (enableBw) { ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlEnableNeg, true); cbBwd.Checked = true; }
+            else { ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlEnableNeg, false); cbBwd.Checked = false; }
 
             this.Enabled = true;
 
@@ -146,7 +146,7 @@ namespace Motion_GUI
 
         private void Panel_Axes_ControlRemoved(object sender, ControlEventArgs e)
         {
-            client.Dispose();
+            ((Form1)activeForm).client.Dispose();
             MessageBox.Show("Panel axes removed");
         }
 
@@ -162,15 +162,15 @@ namespace Motion_GUI
         {
             if (comboFunction.Text == "Move Absolute")
             {
-                client.WriteAny(axes[idxAxis].hdlAbsPos, double.Parse(tbTargetPos.Text));
-                client.WriteAny(axes[idxAxis].hdlAbsVelo, double.Parse(tbTargetVelo.Text));
-                client.WriteAny(axes[idxAxis].hdlAbsMove, true);
+                ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlAbsPos, double.Parse(tbTargetPos.Text));
+                ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlAbsVelo, double.Parse(tbTargetVelo.Text));
+                ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlAbsMove, true);
             }
             else if (comboFunction.Text == "Move Relative")
             {
-                client.WriteAny(axes[idxAxis].hdlRelPos, Double.Parse(tbTargetPos.Text));
-                client.WriteAny(axes[idxAxis].hdlRelVelo, double.Parse(tbTargetVelo.Text));
-                client.WriteAny(axes[idxAxis].hdlRelMove, true);
+                ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlRelPos, Double.Parse(tbTargetPos.Text));
+                ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlRelVelo, double.Parse(tbTargetVelo.Text));
+                ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlRelMove, true);
             }
             else if (comboFunction.Text == "Move Velocity")
             {
@@ -181,15 +181,15 @@ namespace Motion_GUI
                 }
                 else if (velo < 0)
                 {
-                    client.WriteAny(axes[idxAxis].hdlVeloVelo, double.Parse(tbTargetVelo.Text) * -1);
-                    client.WriteAny(axes[idxAxis].hdlVeloDirection, (short)3); //negative direction
-                    client.WriteAny(axes[idxAxis].hdlMoveVelo, true);
+                    ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlVeloVelo, double.Parse(tbTargetVelo.Text) * -1);
+                    ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlVeloDirection, (short)3); //negative direction
+                    ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlMoveVelo, true);
                 }
                 else
                 {
-                    client.WriteAny(axes[idxAxis].hdlVeloVelo, double.Parse(tbTargetVelo.Text));
-                    client.WriteAny(axes[idxAxis].hdlVeloDirection, (short)1); //positive direction
-                    client.WriteAny(axes[idxAxis].hdlMoveVelo, true);
+                    ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlVeloVelo, double.Parse(tbTargetVelo.Text));
+                    ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlVeloDirection, (short)1); //positive direction
+                    ((Form1)activeForm).client.WriteAny(axes[idxAxis].hdlMoveVelo, true);
                 }
 
             }
@@ -201,9 +201,10 @@ namespace Motion_GUI
 
         private void Panel_Axes_Load(object sender, EventArgs e)
         {
+            activeForm = this.FindForm();
             try
             {
-                client.Connect(851);
+                ((Form1)activeForm).client.Connect(851);
 
                 //Read XML
                 XmlDocument doc = new XmlDocument();
@@ -242,55 +243,55 @@ namespace Motion_GUI
                     axis.varErrId = axisNode.SelectSingleNode("ErrorId").InnerText;
 
                     //create handle
-                    axis.hdlEnable = client.CreateVariableHandle(axis.varEnable);
-                    axis.hdlEnableNeg = client.CreateVariableHandle(axis.varEnablePos);
-                    axis.hdlEnablePos = client.CreateVariableHandle(axis.varEnableNeg);
-                    axis.hdlOverride = client.CreateVariableHandle(axis.varOverride);
+                    axis.hdlEnable = ((Form1)activeForm).client.CreateVariableHandle(axis.varEnable);
+                    axis.hdlEnableNeg = ((Form1)activeForm).client.CreateVariableHandle(axis.varEnablePos);
+                    axis.hdlEnablePos = ((Form1)activeForm).client.CreateVariableHandle(axis.varEnableNeg);
+                    axis.hdlOverride = ((Form1)activeForm).client.CreateVariableHandle(axis.varOverride);
 
-                    axis.hdlJogFw = client.CreateVariableHandle(axis.varJogFw);
-                    axis.hdlJogBw = client.CreateVariableHandle(axis.varJogBw);
-                    axis.hdlAbsPos = client.CreateVariableHandle(axis.varAbsPos);
-                    axis.hdlAbsVelo = client.CreateVariableHandle(axis.varAbsVelo);
-                    axis.hdlAbsMove = client.CreateVariableHandle(axis.varAbsMove);
-                    axis.hdlStop = client.CreateVariableHandle(axis.varStop);
-                    axis.hdlReset = client.CreateVariableHandle(axis.varReset);
-                    axis.hdlHome = client.CreateVariableHandle(axis.varHome);
+                    axis.hdlJogFw = ((Form1)activeForm).client.CreateVariableHandle(axis.varJogFw);
+                    axis.hdlJogBw = ((Form1)activeForm).client.CreateVariableHandle(axis.varJogBw);
+                    axis.hdlAbsPos = ((Form1)activeForm).client.CreateVariableHandle(axis.varAbsPos);
+                    axis.hdlAbsVelo = ((Form1)activeForm).client.CreateVariableHandle(axis.varAbsVelo);
+                    axis.hdlAbsMove = ((Form1)activeForm).client.CreateVariableHandle(axis.varAbsMove);
+                    axis.hdlStop = ((Form1)activeForm).client.CreateVariableHandle(axis.varStop);
+                    axis.hdlReset = ((Form1)activeForm).client.CreateVariableHandle(axis.varReset);
+                    axis.hdlHome = ((Form1)activeForm).client.CreateVariableHandle(axis.varHome);
 
-                    axis.hdlRelMove = client.CreateVariableHandle(axis.varRelMove);
-                    axis.hdlRelPos = client.CreateVariableHandle(axis.varRelPos);
-                    axis.hdlRelVelo = client.CreateVariableHandle(axis.varRelVelo);
-                    axis.hdlMoveVelo = client.CreateVariableHandle(axis.varMoveVelo);
-                    axis.hdlVeloVelo = client.CreateVariableHandle(axis.varVeloVelo);
-                    axis.hdlVeloDirection = client.CreateVariableHandle(axis.varVeloDirection);
+                    axis.hdlRelMove = ((Form1)activeForm).client.CreateVariableHandle(axis.varRelMove);
+                    axis.hdlRelPos = ((Form1)activeForm).client.CreateVariableHandle(axis.varRelPos);
+                    axis.hdlRelVelo = ((Form1)activeForm).client.CreateVariableHandle(axis.varRelVelo);
+                    axis.hdlMoveVelo = ((Form1)activeForm).client.CreateVariableHandle(axis.varMoveVelo);
+                    axis.hdlVeloVelo = ((Form1)activeForm).client.CreateVariableHandle(axis.varVeloVelo);
+                    axis.hdlVeloDirection = ((Form1)activeForm).client.CreateVariableHandle(axis.varVeloDirection);
 
-                    axis.hdlReady = client.CreateVariableHandle(axis.varReady);
-                    axis.hdlActPos = client.CreateVariableHandle(axis.varActPos);
-                    axis.hdlActVelo = client.CreateVariableHandle(axis.varActVelo);
-                    axis.hdlErrId = client.CreateVariableHandle(axis.varErrId);
+                    axis.hdlReady = ((Form1)activeForm).client.CreateVariableHandle(axis.varReady);
+                    axis.hdlActPos = ((Form1)activeForm).client.CreateVariableHandle(axis.varActPos);
+                    axis.hdlActVelo = ((Form1)activeForm).client.CreateVariableHandle(axis.varActVelo);
+                    axis.hdlErrId = ((Form1)activeForm).client.CreateVariableHandle(axis.varErrId);
 
                     
-                    axis.hdlReadyNotif = client.AddDeviceNotificationEx(axis.varReady, AdsTransMode.OnChange, 100, 100, cbReady, typeof(bool));
-                    axis.hdlActPosNotif = client.AddDeviceNotificationEx(axis.varActPos, AdsTransMode.OnChange, 100, 100, tbActPos, typeof(double));
-                    axis.hdlActVeloNotif = client.AddDeviceNotificationEx(axis.varActVelo, AdsTransMode.OnChange, 100, 100, tbActVelo, typeof(double));
-                    axis.hdlErrIdNotif = client.AddDeviceNotificationEx(axis.varErrId, AdsTransMode.OnChange, 100, 100, tbErrId, typeof(uint));
+                    axis.hdlReadyNotif = ((Form1)activeForm).client.AddDeviceNotificationEx(axis.varReady, AdsTransMode.OnChange, 100, 100, cbReady, typeof(bool));
+                    axis.hdlActPosNotif = ((Form1)activeForm).client.AddDeviceNotificationEx(axis.varActPos, AdsTransMode.OnChange, 100, 100, tbActPos, typeof(double));
+                    axis.hdlActVeloNotif = ((Form1)activeForm).client.AddDeviceNotificationEx(axis.varActVelo, AdsTransMode.OnChange, 100, 100, tbActVelo, typeof(double));
+                    axis.hdlErrIdNotif = ((Form1)activeForm).client.AddDeviceNotificationEx(axis.varErrId, AdsTransMode.OnChange, 100, 100, tbErrId, typeof(uint));
 
                     axes.Add(axis);
                     TabPage tp = new TabPage("Axis " + axes.Count.ToString());
                     tabAxis.TabPages.Add(tp);
                 }
                 //create notification for status
-                client.AdsNotificationEx += new AdsNotificationExEventHandler(onNotification);
+                ((Form1)activeForm).client.AdsNotificationEx += new AdsNotificationExEventHandler(onNotification);
 
-                double temp = (double)client.ReadAny(axes[idxAxis].hdlActPos, typeof(double));
+                double temp = (double)((Form1)activeForm).client.ReadAny(axes[idxAxis].hdlActPos, typeof(double));
                 tbActPos.Text = temp.ToString("#0.0000");
-                temp = (double)client.ReadAny(axes[idxAxis].hdlActVelo, typeof(double));
+                temp = (double)((Form1)activeForm).client.ReadAny(axes[idxAxis].hdlActVelo, typeof(double));
                 tbActVelo.Text = temp.ToString("#0.0000");
 
-                tbErrId.Text = client.ReadAny(axes[idxAxis].hdlErrId, typeof(uint)).ToString();
-                cbReady.Checked = (bool)client.ReadAny(axes[idxAxis].hdlReady, typeof(bool));
-                cbController.Checked = (bool)client.ReadAny(axes[idxAxis].hdlEnable, typeof(bool));
-                cbFwd.Checked = (bool)client.ReadAny(axes[idxAxis].hdlEnablePos, typeof(bool));
-                cbBwd.Checked = (bool)client.ReadAny(axes[idxAxis].hdlEnableNeg, typeof(bool));
+                tbErrId.Text = ((Form1)activeForm).client.ReadAny(axes[idxAxis].hdlErrId, typeof(uint)).ToString();
+                cbReady.Checked = (bool)((Form1)activeForm).client.ReadAny(axes[idxAxis].hdlReady, typeof(bool));
+                cbController.Checked = (bool)((Form1)activeForm).client.ReadAny(axes[idxAxis].hdlEnable, typeof(bool));
+                cbFwd.Checked = (bool)((Form1)activeForm).client.ReadAny(axes[idxAxis].hdlEnablePos, typeof(bool));
+                cbBwd.Checked = (bool)((Form1)activeForm).client.ReadAny(axes[idxAxis].hdlEnableNeg, typeof(bool));
                 
             }
             catch (Exception ex)

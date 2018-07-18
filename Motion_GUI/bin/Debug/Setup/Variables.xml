@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<Config>
+<Axes>
+	<Axis Id="1">
+		<Enable>MAIN.stAxis[0].bEnable</Enable>
+		<Enable_Positive>MAIN.stAxis[0].bEnable_Positive</Enable_Positive>
+		<Enable_Negative>MAIN.stAxis[0].bEnable_Negative</Enable_Negative>
+		<Override>MAIN.stAxis[0].lrOverride</Override>
+		<JogFwd>MAIN.stAxis[0].bJogForward</JogFwd>
+		<JogBwd>MAIN.stAxis[0].bJogBackwards</JogBwd>
+		<MoveAbs>MAIN.stAxis[0].bAbsMove</MoveAbs>
+		<MoveAbsPosition>MAIN.stAxis[0].lrAbsPosition</MoveAbsPosition>
+		<MoveAbsVelocity>MAIN.stAxis[0].lrAbsVelocity</MoveAbsVelocity>
+		<Stop>MAIN.stAxis[0].bStop</Stop>
+		<Reset>MAIN.stAxis[0].bReset</Reset>
+		<Home>MAIN.stAxis[0].bHome</Home>
+		<MoveRelative>MAIN.stAxis[0].bRelMove</MoveRelative>
+		<MoveRelDistance>MAIN.stAxis[0].lrRelDistance</MoveRelDistance>
+		<MoveRelVelocity>MAIN.stAxis[0].lrRelVelocity</MoveRelVelocity>
+		<MoveVelocity>MAIN.stAxis[0].bMoveVelo</MoveVelocity>
+		<MoveVeloVelocity>MAIN.stAxis[0].lrVeloVelocity</MoveVeloVelocity>
+		<MoveVeloDirection>MAIN.stAxis[0].nVeloDirection</MoveVeloDirection>
+		<Ready>MAIN.stAxis[0].bReady</Ready>
+		<ActPos>MAIN.stAxis[0].lrActPos</ActPos>
+		<ActVelo>MAIN.stAxis[0].lrActVelo</ActVelo>
+		<ErrorId>MAIN.stAxis[0].nErrId</ErrorId>
+	</Axis>
+	<Axis Id="2">
+		<Enable>MAIN.stAxis[1].bEnable</Enable>
+		<Enable_Positive>MAIN.stAxis[1].bEnable_Positive</Enable_Positive>
+		<Enable_Negative>MAIN.stAxis[1].bEnable_Negative</Enable_Negative>
+		<Override>MAIN.stAxis[1].lrOverride</Override>
+		<JogFwd>MAIN.stAxis[1].bJogForward</JogFwd>
+		<JogBwd>MAIN.stAxis[1].bJogBackwards</JogBwd>
+		<MoveAbs>MAIN.stAxis[1].bAbsMove</MoveAbs>
+		<MoveAbsPosition>MAIN.stAxis[1].lrAbsPosition</MoveAbsPosition>
+		<MoveAbsVelocity>MAIN.stAxis[1].lrAbsVelocity</MoveAbsVelocity>
+		<Stop>MAIN.stAxis[1].bStop</Stop>
+		<Reset>MAIN.stAxis[1].bReset</Reset>
+		<Home>MAIN.stAxis[1].bHome</Home>
+		<MoveRelative>MAIN.stAxis[1].bRelMove</MoveRelative>
+		<MoveRelDistance>MAIN.stAxis[1].lrRelDistance</MoveRelDistance>
+		<MoveRelVelocity>MAIN.stAxis[1].lrRelVelocity</MoveRelVelocity>
+		<MoveVelocity>MAIN.stAxis[1].bMoveVelo</MoveVelocity>
+		<MoveVeloVelocity>MAIN.stAxis[1].lrVeloVelocity</MoveVeloVelocity>
+		<MoveVeloDirection>MAIN.stAxis[1].nVeloDirection</MoveVeloDirection>
+		<Ready>MAIN.stAxis[1].bReady</Ready>
+		<ActPos>MAIN.stAxis[1].lrActPos</ActPos>
+		<ActVelo>MAIN.stAxis[1].lrActVelo</ActVelo>
+		<ErrorId>MAIN.stAxis[1].nErrId</ErrorId>
+	</Axis>
+	<Axis Id="3">
+		<Enable>MAIN.stAxis[2].bEnable</Enable>
+		<Enable_Positive>MAIN.stAxis[2].bEnable_Positive</Enable_Positive>
+		<Enable_Negative>MAIN.stAxis[2].bEnable_Negative</Enable_Negative>
+		<Override>MAIN.stAxis[2].lrOverride</Override>
+		<JogFwd>MAIN.stAxis[2].bJogForward</JogFwd>
+		<JogBwd>MAIN.stAxis[2].bJogBackwards</JogBwd>
+		<MoveAbs>MAIN.stAxis[2].bAbsMove</MoveAbs>
+		<MoveAbsPosition>MAIN.stAxis[2].lrAbsPosition</MoveAbsPosition>
+		<MoveAbsVelocity>MAIN.stAxis[2].lrAbsVelocity</MoveAbsVelocity>
+		<Stop>MAIN.stAxis[2].bStop</Stop>
+		<Reset>MAIN.stAxis[2].bReset</Reset>
+		<Home>MAIN.stAxis[2].bHome</Home>
+		<MoveRelative>MAIN.stAxis[2].bRelMove</MoveRelative>
+		<MoveRelDistance>MAIN.stAxis[2].lrRelDistance</MoveRelDistance>
+		<MoveRelVelocity>MAIN.stAxis[2].lrRelVelocity</MoveRelVelocity>
+		<MoveVelocity>MAIN.stAxis[2].bMoveVelo</MoveVelocity>
+		<MoveVeloVelocity>MAIN.stAxis[2].lrVeloVelocity</MoveVeloVelocity>
+		<MoveVeloDirection>MAIN.stAxis[2].nVeloDirection</MoveVeloDirection>
+		<Ready>MAIN.stAxis[2].bReady</Ready>
+		<ActPos>MAIN.stAxis[2].lrActPos</ActPos>
+		<ActVelo>MAIN.stAxis[2].lrActVelo</ActVelo>
+		<ErrorId>MAIN.stAxis[2].nErrId</ErrorId>
+	</Axis>
+</Axes>
+<IO>
+	<Module Id="Module 1">
+		<Input>
+			<VarName>MAIN.bInput1</VarName>
+			<Description>Input 1</Description>
+		</Input>
+		<Input>
+			<VarName>MAIN.bInput2</VarName>
+			<Description>Input 2</Description>
+		</Input>
+		<Input>
+			<VarName>MAIN.bInput3</VarName>
+			<Description>Input 3</Description>
+		</Input>
+		<Input>
+			<VarName>MAIN.bInput4</VarName>
+			<Description></Description>
+		</Input>
+		<Input>
+			<VarName>MAIN.bInput5</VarName>
+			<Description></Description>
+		</Input>
+		<Output>
+			<VarName>MAIN.bOutput1</VarName>
+			<Description></Description>
+		</Output>
+		<Output>
+			<VarName>MAIN.bOutput2</VarName>
+			<Description></Description>
+		</Output>
+		<Output>
+			<VarName>MAIN.bOutput3</VarName>
+			<Description></Description>
+		</Output>
+		<Output>
+			<VarName>MAIN.bOutput4</VarName>
+			<Description></Description>
+		</Output>
+		<Output>
+			<VarName>MAIN.bOutput5</VarName>
+			<Description></Description>
+		</Output>
+
+	</Module>
+	<Module Id="Module 2">
+		<Input>
+			<VarName>MAIN.bInput6</VarName>
+			<Description></Description>
+		</Input>
+		<Input>
+			<VarName>MAIN.bInput7</VarName>
+			<Description></Description>
+		</Input>
+		<Input>
+			<VarName>MAIN.bInput8</VarName>
+			<Description></Description>
+		</Input>
+		<Input>
+			<VarName>MAIN.bInput9</VarName>
+			<Description></Description>
+		</Input>
+		<Input>
+			<VarName>MAIN.bInput10</VarName>
+			<Description></Description>
+		</Input>
+		<Output>
+			<VarName>MAIN.bOutput6</VarName>
+			<Description></Description>
+		</Output>
+		<Output>
+			<VarName>MAIN.bOutput7</VarName>
+			<Description></Description>
+		</Output>
+		<Output>
+			<VarName>MAIN.bOutput8</VarName>
+			<Description></Description>
+		</Output>
+		<Output>
+			<VarName>MAIN.bOutput9</VarName>
+			<Description></Description>
+		</Output>
+		<Output>
+			<VarName>MAIN.bOutput10</VarName>
+			<Description></Description>
+		</Output>
+	</Module>
+</IO>
+</Config>

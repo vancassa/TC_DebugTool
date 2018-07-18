@@ -14,8 +14,9 @@ namespace Motion_GUI
 {
     public partial class Form1 : Form
     {
-        Panel_Axes panelAxes = new Panel_Axes();
-        Panel_IO panelIO = new Panel_IO();
+        Panel_Axes panelAxes;
+        Panel_IO panelIO;
+        public TcAdsClient client = new TcAdsClient();
         
 
         private void btnAxes_Click(object sender, EventArgs e)
@@ -63,6 +64,44 @@ namespace Motion_GUI
         {
             panelMain.Controls.Remove(panelAxes);
             panelMain.Controls.Remove(panelIO);
+        }
+
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                client.Connect(tbAmsNetId.Text, 851);
+                btnDisconnect.Enabled = true;
+                btnConnect.Enabled = false;
+
+                panelAxes = new Panel_Axes();
+                panelIO = new Panel_IO();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error connecting to target.\nMake sure you have added route to remote target.\nMake sure TwinCAT in target system is in Run Mode and PLC is running.");
+
+            }
+        }
+
+        private void btnDisconnect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                client.Disconnect();
+                panelMain.Controls.Remove(panelAxes);
+                panelMain.Controls.Remove(panelIO);
+                panelAxes.Dispose();
+                panelIO.Dispose();
+                btnConnect.Enabled = true;
+                btnDisconnect.Enabled = false;
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 
