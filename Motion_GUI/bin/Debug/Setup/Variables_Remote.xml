@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <Config>
+<AmsNetId>5.50.65.238.1.1</AmsNetId>
 <Axes>
 	<Axis Id="1">
 		<Enable>MAIN.stAxis[0].bEnable</Enable>

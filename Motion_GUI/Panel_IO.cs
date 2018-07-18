@@ -33,7 +33,7 @@ namespace Motion_GUI
 
                 //add notification
                 XmlDocument doc = new XmlDocument();
-                doc.Load("Setup/Variables.xml");
+                doc.Load(((Form1)activeForm).xmlFile);
 
                 XmlNode ioNode = doc.SelectSingleNode("/Config/IO");
                 XmlNodeList xmlModuleList = ioNode.SelectNodes("Module");
@@ -83,7 +83,7 @@ namespace Motion_GUI
             {
                 MessageBox.Show(ex.Message);
                 MessageBox.Show("Error loading page.\n\nPlease make sure: \n1.TwinCAT is running \n2.TwinCAT variable names match the \"Variables.xml\" file", "Error");
-
+                this.Dispose();
             }
 
 

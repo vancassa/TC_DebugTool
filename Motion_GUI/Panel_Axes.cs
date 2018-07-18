@@ -204,11 +204,11 @@ namespace Motion_GUI
             activeForm = this.FindForm();
             try
             {
-                ((Form1)activeForm).client.Connect(851);
+                //((Form1)activeForm).client.Connect(851);
 
                 //Read XML
                 XmlDocument doc = new XmlDocument();
-                doc.Load("Variables.xml");
+                doc.Load(((Form1)activeForm).xmlFile);
 
                 XmlNode axesNode = doc.SelectSingleNode("/Config/Axes");
                 XmlNodeList axisList = axesNode.SelectNodes("Axis");
@@ -298,7 +298,7 @@ namespace Motion_GUI
             {
                 MessageBox.Show(ex.Message);
                 MessageBox.Show("Error loading page.\n\nPlease make sure: \n1.TwinCAT is running \n2.TwinCAT variable names match the \"Variables.xml\" file", "Error");
-
+                this.Dispose();
             }
         }
         

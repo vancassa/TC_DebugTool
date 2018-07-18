@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using TwinCAT.Ads;
+using System.IO;
+using System.Xml;
 
 namespace Motion_GUI
 {
@@ -17,7 +19,7 @@ namespace Motion_GUI
         Panel_Axes panelAxes;
         Panel_IO panelIO;
         public TcAdsClient client = new TcAdsClient();
-        
+        public string xmlFile;
 
         private void btnAxes_Click(object sender, EventArgs e)
         {
@@ -53,6 +55,7 @@ namespace Motion_GUI
         {
             panelMain.Controls.Remove(panelAxes);
             panelMain.Controls.Remove(panelIO);
+            client.Dispose();
         }
         
         public Form1()
@@ -73,9 +76,24 @@ namespace Motion_GUI
                 client.Connect(tbAmsNetId.Text, 851);
                 btnDisconnect.Enabled = true;
                 btnConnect.Enabled = false;
+                btnAxes.Enabled = true;
+                btnIo.Enabled = true;
 
-                panelAxes = new Panel_Axes();
-                panelIO = new Panel_IO();
+                if (tbAmsNetId.Text == "") statusLabel.Text = "Connected to local computer.";
+                else statusLabel.Text = "Connected to " + tbAmsNetId.Text;
+
+                //search for xml file
+                xmlFile = searchXML();
+                if (xmlFile == "")
+                {
+                    MessageBox.Show("XML file for the specified AMS Net Id is not found.");
+                    return;
+                }else
+                {
+                    statusLabel.Text = xmlFile + " loaded.";
+                    panelAxes = new Panel_Axes();
+                    panelIO = new Panel_IO();
+                }
             }
             catch(Exception ex)
             {
@@ -96,12 +114,35 @@ namespace Motion_GUI
                 panelIO.Dispose();
                 btnConnect.Enabled = true;
                 btnDisconnect.Enabled = false;
-
+                btnAxes.Enabled = false;
+                btnIo.Enabled = false;
+                statusLabel.Text = "Disconnected";
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private string searchXML()
+        {
+            string[] files = Directory.GetFiles("Setup").Where(o => o.EndsWith(".xml")).ToArray();
+            XmlDocument doc = new XmlDocument();
+            foreach (string file in files)
+            {
+                doc.Load(file);
+                string amsNetId = doc.SelectSingleNode("/Config/AmsNetId").InnerText;
+                if (amsNetId == tbAmsNetId.Text)
+                {
+                    return file;
+                }
+            }
+            return "";
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            textBox1.Width = this.Width;
         }
     }
 
