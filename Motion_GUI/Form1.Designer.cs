@@ -34,7 +34,6 @@ namespace Motion_GUI
             this.btnAxes = new System.Windows.Forms.Button();
             this.btnIo = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.tbAmsNetId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnConnect = new System.Windows.Forms.Button();
             this.btnDisconnect = new System.Windows.Forms.Button();
@@ -44,13 +43,15 @@ namespace Motion_GUI
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.label2 = new System.Windows.Forms.Label();
+            this.cbDebugging = new System.Windows.Forms.CheckBox();
+            this.tbAmsNetId = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMain
             // 
-            this.panelMain.Location = new System.Drawing.Point(-1, 122);
+            this.panelMain.Location = new System.Drawing.Point(0, 135);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(818, 541);
             this.panelMain.TabIndex = 0;
@@ -90,15 +91,8 @@ namespace Motion_GUI
             this.textBox1.Location = new System.Drawing.Point(-9, 27);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(827, 89);
+            this.textBox1.Size = new System.Drawing.Size(827, 102);
             this.textBox1.TabIndex = 3;
-            // 
-            // tbAmsNetId
-            // 
-            this.tbAmsNetId.Location = new System.Drawing.Point(106, 59);
-            this.tbAmsNetId.Name = "tbAmsNetId";
-            this.tbAmsNetId.Size = new System.Drawing.Size(152, 20);
-            this.tbAmsNetId.TabIndex = 4;
             // 
             // label1
             // 
@@ -160,7 +154,7 @@ namespace Motion_GUI
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 666);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 677);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(818, 22);
             this.statusStrip1.TabIndex = 9;
@@ -183,22 +177,47 @@ namespace Motion_GUI
             this.label2.TabIndex = 10;
             this.label2.Text = "Set empty for local target";
             // 
+            // cbDebugging
+            // 
+            this.cbDebugging.AutoSize = true;
+            this.cbDebugging.BackColor = System.Drawing.Color.DarkRed;
+            this.cbDebugging.Enabled = false;
+            this.cbDebugging.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDebugging.ForeColor = System.Drawing.Color.White;
+            this.cbDebugging.Location = new System.Drawing.Point(604, 101);
+            this.cbDebugging.Name = "cbDebugging";
+            this.cbDebugging.Size = new System.Drawing.Size(145, 19);
+            this.cbDebugging.TabIndex = 11;
+            this.cbDebugging.Text = "Enable Debugging";
+            this.cbDebugging.UseVisualStyleBackColor = false;
+            this.cbDebugging.CheckedChanged += new System.EventHandler(this.cbDebugging_CheckedChanged);
+            // 
+            // tbAmsNetId
+            // 
+            this.tbAmsNetId.FormattingEnabled = true;
+            this.tbAmsNetId.Location = new System.Drawing.Point(106, 57);
+            this.tbAmsNetId.Name = "tbAmsNetId";
+            this.tbAmsNetId.Size = new System.Drawing.Size(152, 21);
+            this.tbAmsNetId.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(818, 688);
+            this.ClientSize = new System.Drawing.Size(818, 699);
+            this.Controls.Add(this.tbAmsNetId);
+            this.Controls.Add(this.cbDebugging);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnDisconnect);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbAmsNetId);
             this.Controls.Add(this.btnIo);
             this.Controls.Add(this.btnAxes);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.textBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Motion_GUI";
@@ -221,7 +240,6 @@ namespace Motion_GUI
         private Button btnAxes;
         private Button btnIo;
         private TextBox textBox1;
-        private TextBox tbAmsNetId;
         private Label label1;
         private Button btnConnect;
         private Button btnDisconnect;
@@ -231,6 +249,8 @@ namespace Motion_GUI
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel statusLabel;
         private Label label2;
+        private CheckBox cbDebugging;
+        private ComboBox tbAmsNetId;
     }
 }
 

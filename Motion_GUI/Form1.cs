@@ -19,7 +19,11 @@ namespace Motion_GUI
         Panel_Axes panelAxes;
         Panel_IO panelIO;
         public TcAdsClient client = new TcAdsClient();
-        public string xmlFile;
+        public string xmlFile, debugVar;
+        public int debugVarHandle;
+        public bool debugState;
+        XmlDocument docu = new XmlDocument();
+        XmlNodeList savedTargets;
 
         private void btnAxes_Click(object sender, EventArgs e)
         {
@@ -48,6 +52,7 @@ namespace Motion_GUI
             //this.panelMain.Controls.Clear();
             //this.panelMain.Controls.Add(panelAxes);
 
+            checkSavedTargets();   
         }
 
 
@@ -74,14 +79,11 @@ namespace Motion_GUI
             try
             {
                 client.Connect(tbAmsNetId.Text, 851);
-                btnDisconnect.Enabled = true;
-                btnConnect.Enabled = false;
-                btnAxes.Enabled = true;
-                btnIo.Enabled = true;
+                
 
                 if (tbAmsNetId.Text == "") statusLabel.Text = "Connected to local computer.";
                 else statusLabel.Text = "Connected to " + tbAmsNetId.Text;
-
+                
                 //search for xml file
                 xmlFile = searchXML();
                 if (xmlFile == "")
@@ -93,6 +95,58 @@ namespace Motion_GUI
                     statusLabel.Text = xmlFile + " loaded.";
                     panelAxes = new Panel_Axes();
                     panelIO = new Panel_IO();
+
+                    //search for debugging flag
+                    XmlDocument doc = new XmlDocument();
+                    doc.Load(xmlFile);
+                    if(doc.SelectSingleNode("/Config/DebugVariable") != null)
+                    {
+                        debugVar = doc.SelectSingleNode("/Config/DebugVariable").InnerText;
+                        if(debugVar != "")
+                        {
+                            try
+                            {
+                                debugVarHandle = client.CreateVariableHandle(debugVar);
+                                cbDebugging.Enabled = true;
+                            }
+                            catch
+                            {
+                                MessageBox.Show("DebugVariable name is not correct.\nPlease check your XML file.");
+                                return;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        debugVar = "";
+                    }
+
+                    if (debugVar == "")
+                    {
+                        statusLabel.Text = "Debug variable is not found in XML.";
+                    }
+
+                    btnDisconnect.Enabled = true;
+                    btnConnect.Enabled = false;
+                    btnAxes.Enabled = true;
+                    btnIo.Enabled = true;
+                }
+
+                //check if the connected has been added to xml
+                bool notAdded = true;
+
+                foreach(XmlNode node in savedTargets)
+                {
+                    if (node.InnerText == tbAmsNetId.Text) notAdded = false;
+                }
+
+                if (notAdded)
+                {
+                    //add to xml file
+                    XmlElement newAms = docu.CreateElement("AmsNetId");
+                    newAms.InnerText = tbAmsNetId.Text;
+                    docu.DocumentElement.InsertBefore(newAms, docu.DocumentElement.FirstChild);
+                    docu.Save("SavedTargets.xml");
                 }
             }
             catch(Exception ex)
@@ -116,11 +170,28 @@ namespace Motion_GUI
                 btnDisconnect.Enabled = false;
                 btnAxes.Enabled = false;
                 btnIo.Enabled = false;
+                cbDebugging.Enabled = false;
+                cbDebugging.Checked = false;
+                debugState = false;
                 statusLabel.Text = "Disconnected";
+
+                checkSavedTargets();
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void checkSavedTargets()
+        {
+            docu.Load("SavedTargets.xml");
+            savedTargets = docu.SelectNodes("/Targets/AmsNetId");
+
+            tbAmsNetId.Items.Clear();
+            foreach (XmlNode node in savedTargets)
+            {
+                tbAmsNetId.Items.Add(node.InnerText);
             }
         }
 
@@ -143,6 +214,32 @@ namespace Motion_GUI
         private void Form1_Resize(object sender, EventArgs e)
         {
             textBox1.Width = this.Width;
+        }
+
+        private void cbDebugging_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (client.IsConnected)
+                {
+                    if (cbDebugging.Checked)
+                    {
+                        client.WriteAny(debugVarHandle, true);
+                        debugState = true;
+                    }
+                    else
+                    {
+                        client.WriteAny(debugVarHandle, false);
+                        debugState = false;
+                    }
+                }
+                
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error accessing variable.\nPlease make sure the variable name in XML file is correct.");
+            }
         }
     }
 

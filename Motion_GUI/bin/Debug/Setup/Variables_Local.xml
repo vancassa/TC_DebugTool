@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <Config>
 <AmsNetId></AmsNetId>
+<DebugVariable>MAIN.bDebugging</DebugVariable>
 <Axes>
 	<Axis Id="1">
 		<Enable>MAIN.stAxis[0].bEnable</Enable>

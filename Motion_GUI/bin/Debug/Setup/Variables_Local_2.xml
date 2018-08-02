@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Config>
-<AmsNetId>5.50.65.238.1.1</AmsNetId>
+<AmsNetId>192.168.56.1.1.1</AmsNetId>
 <DebugVariable>MAIN.bDebugging</DebugVariable>
 <Axes>
 	<Axis Id="1">

@@ -18,6 +18,7 @@ namespace Motion_GUI
         List<Module> moduleList = new List<Module>();
         private Timer timer = new Timer();
         Control activeForm;
+        string ioName;
         
         public Panel_IO()
         {
@@ -50,6 +51,7 @@ namespace Motion_GUI
                     {
                         IO io = new IO();
                         io.name = input.SelectSingleNode("VarName").InnerText;
+                        ioName = io.name;
                         io.desc = input.SelectSingleNode("Description").InnerText;
                         io.notifHandle = ((Form1)activeForm).client.AddDeviceNotificationEx(io.name, AdsTransMode.OnChange, 100, 100, null, typeof(bool));
                         io.handle = ((Form1)activeForm).client.CreateVariableHandle(io.name);
@@ -62,6 +64,7 @@ namespace Motion_GUI
                     {
                         IO io = new IO();
                         io.name = output.SelectSingleNode("VarName").InnerText;
+                        ioName = io.name;
                         io.desc = output.SelectSingleNode("Description").InnerText;
                         io.notifHandle = ((Form1)activeForm).client.AddDeviceNotificationEx(io.name, AdsTransMode.OnChange, 100, 100, null, typeof(bool));
                         io.handle = ((Form1)activeForm).client.CreateVariableHandle(io.name);
@@ -69,6 +72,7 @@ namespace Motion_GUI
                         mod.ioList.Add(io);
                     }
 
+                    ioName = "";
                     moduleList.Add(mod);
                     cbModule.Items.Add(mod.name);
                 }
@@ -81,9 +85,20 @@ namespace Motion_GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                MessageBox.Show("Error loading page.\n\nPlease make sure: \n1.TwinCAT is running \n2.TwinCAT variable names match the \"Variables.xml\" file", "Error");
-                this.Dispose();
+                if(ioName == "")
+                {
+                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Error loading page.\n\nPlease make sure: \n1.TwinCAT is running \n2.TwinCAT variable names match the \"Variables.xml\" file", "Error");
+                    this.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Variable "+ioName+" is not found.\nPlease check your XML file.", "Error");
+                    this.Dispose();
+                }
+                
+                
             }
 
 
@@ -107,6 +122,10 @@ namespace Motion_GUI
                     }
                 }
             }
+
+            //check debugging status
+            if (((Form1)activeForm).debugState) contextMenuIO.Enabled = true;
+            else contextMenuIO.Enabled = false;
         }
 
         private void onNotification(object sender, AdsNotificationExEventArgs e)
