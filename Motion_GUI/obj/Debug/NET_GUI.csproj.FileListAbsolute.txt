@@ -12,3 +12,5 @@ C:\Users\VanessaC.BECKHOFF\Documents\_Documents\Projects\Developed Library\Commo
 C:\Users\VanessaC.BECKHOFF\Documents\_Documents\Projects\Developed Library\Common Framework\Motion_GUI\Motion_GUI\obj\Debug\Motion_GUI.Form1.resources
 C:\Users\VanessaC.BECKHOFF\Documents\_Documents\Projects\Developed Library\Common Framework\Motion_GUI\Motion_GUI\obj\Debug\Motion_GUI.Panel_Axes.resources
 C:\Users\VanessaC.BECKHOFF\Documents\_Documents\Projects\Developed Library\Common Framework\Motion_GUI\Motion_GUI\obj\Debug\Motion_GUI.Panel_IO.resources
+C:\Users\VanessaC.BECKHOFF\Documents\_Documents\Projects\Developed Library\Common Framework\Motion_GUI\Motion_GUI\obj\Debug\Motion_GUI.frmAbout.resources
+C:\Users\VanessaC.BECKHOFF\Documents\_Documents\Projects\Developed Library\Common Framework\Motion_GUI\Motion_GUI\obj\Debug\Motion_GUI.frmHelp.resources

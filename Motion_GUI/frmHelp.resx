@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>1. This debugging tool comes with a sample TwinCAT Project. If you don't have it, ask the person whom you get this tool from.
+
+2. Inside the program directory, there should be a "Setup" folder containing the XML configuration files. Here is an example:</value>
+  </data>
+  <data name="textBox2.Text" xml:space="preserve">
+    <value>&lt;?xml version="1.0"?&gt;
+&lt;Config&gt;
+&lt;AmsNetId&gt;5.50.65.238.1.1&lt;/AmsNetId&gt;
+&lt;DebugVariable&gt;MAIN.bDebugging&lt;/DebugVariable&gt;
+&lt;Axes&gt;
+	&lt;Axis Id="1"&gt;
+		&lt;Enable&gt;MAIN.stAxis[0].bEnable&lt;/Enable&gt;
+		&lt;Enable_Positive&gt;MAIN.stAxis[0].bEnable_Positive&lt;/Enable_Positive&gt;
+		&lt;Enable_Negative&gt;MAIN.stAxis[0].bEnable_Negative&lt;/Enable_Negative&gt;
+		&lt;Override&gt;MAIN.stAxis[0].lrOverride&lt;/Override&gt;
+		&lt;JogFwd&gt;MAIN.stAxis[0].bJogForward&lt;/JogFwd&gt;
+		&lt;JogBwd&gt;MAIN.stAxis[0].bJogBackwards&lt;/JogBwd&gt;
+		&lt;MoveAbs&gt;MAIN.stAxis[0].bAbsMove&lt;/MoveAbs&gt;
+		&lt;MoveAbsPosition&gt;MAIN.stAxis[0].lrAbsPosition&lt;/MoveAbsPosition&gt;
+		&lt;MoveAbsVelocity&gt;MAIN.stAxis[0].lrAbsVelocity&lt;/MoveAbsVelocity&gt;
+		&lt;Stop&gt;MAIN.stAxis[0].bStop&lt;/Stop&gt;
+		&lt;Reset&gt;MAIN.stAxis[0].bReset&lt;/Reset&gt;
+		&lt;Home&gt;MAIN.stAxis[0].bHome&lt;/Home&gt;
+		&lt;MoveRelative&gt;MAIN.stAxis[0].bRelMove&lt;/MoveRelative&gt;
+		&lt;MoveRelDistance&gt;MAIN.stAxis[0].lrRelDistance&lt;/MoveRelDistance&gt;
+		&lt;MoveRelVelocity&gt;MAIN.stAxis[0].lrRelVelocity&lt;/MoveRelVelocity&gt;
+		&lt;MoveVelocity&gt;MAIN.stAxis[0].bMoveVelo&lt;/MoveVelocity&gt;
+		&lt;MoveVeloVelocity&gt;MAIN.stAxis[0].lrVeloVelocity&lt;/MoveVeloVelocity&gt;
+		&lt;MoveVeloDirection&gt;MAIN.stAxis[0].nVeloDirection&lt;/MoveVeloDirection&gt;
+		&lt;Ready&gt;MAIN.stAxis[0].bReady&lt;/Ready&gt;
+		&lt;ActPos&gt;MAIN.stAxis[0].lrActPos&lt;/ActPos&gt;
+		&lt;ActVelo&gt;MAIN.stAxis[0].lrActVelo&lt;/ActVelo&gt;
+		&lt;ErrorId&gt;MAIN.stAxis[0].nErrId&lt;/ErrorId&gt;
+	&lt;/Axis&gt;
+	&lt;Axis Id="2"&gt;
+		&lt;Enable&gt;MAIN.stAxis[1].bEnable&lt;/Enable&gt;
+		&lt;Enable_Positive&gt;MAIN.stAxis[1].bEnable_Positive&lt;/Enable_Positive&gt;
+		&lt;Enable_Negative&gt;MAIN.stAxis[1].bEnable_Negative&lt;/Enable_Negative&gt;
+		&lt;Override&gt;MAIN.stAxis[1].lrOverride&lt;/Override&gt;
+		&lt;JogFwd&gt;MAIN.stAxis[1].bJogForward&lt;/JogFwd&gt;
+		&lt;JogBwd&gt;MAIN.stAxis[1].bJogBackwards&lt;/JogBwd&gt;
+		&lt;MoveAbs&gt;MAIN.stAxis[1].bAbsMove&lt;/MoveAbs&gt;
+		&lt;MoveAbsPosition&gt;MAIN.stAxis[1].lrAbsPosition&lt;/MoveAbsPosition&gt;
+		&lt;MoveAbsVelocity&gt;MAIN.stAxis[1].lrAbsVelocity&lt;/MoveAbsVelocity&gt;
+		&lt;Stop&gt;MAIN.stAxis[1].bStop&lt;/Stop&gt;
+		&lt;Reset&gt;MAIN.stAxis[1].bReset&lt;/Reset&gt;
+		&lt;Home&gt;MAIN.stAxis[1].bHome&lt;/Home&gt;
+		&lt;MoveRelative&gt;MAIN.stAxis[1].bRelMove&lt;/MoveRelative&gt;
+		&lt;MoveRelDistance&gt;MAIN.stAxis[1].lrRelDistance&lt;/MoveRelDistance&gt;
+		&lt;MoveRelVelocity&gt;MAIN.stAxis[1].lrRelVelocity&lt;/MoveRelVelocity&gt;
+		&lt;MoveVelocity&gt;MAIN.stAxis[1].bMoveVelo&lt;/MoveVelocity&gt;
+		&lt;MoveVeloVelocity&gt;MAIN.stAxis[1].lrVeloVelocity&lt;/MoveVeloVelocity&gt;
+		&lt;MoveVeloDirection&gt;MAIN.stAxis[1].nVeloDirection&lt;/MoveVeloDirection&gt;
+		&lt;Ready&gt;MAIN.stAxis[1].bReady&lt;/Ready&gt;
+		&lt;ActPos&gt;MAIN.stAxis[1].lrActPos&lt;/ActPos&gt;
+		&lt;ActVelo&gt;MAIN.stAxis[1].lrActVelo&lt;/ActVelo&gt;
+		&lt;ErrorId&gt;MAIN.stAxis[1].nErrId&lt;/ErrorId&gt;
+	&lt;/Axis&gt;
+	&lt;Axis Id="3"&gt;
+		&lt;Enable&gt;MAIN.stAxis[2].bEnable&lt;/Enable&gt;
+		&lt;Enable_Positive&gt;MAIN.stAxis[2].bEnable_Positive&lt;/Enable_Positive&gt;
+		&lt;Enable_Negative&gt;MAIN.stAxis[2].bEnable_Negative&lt;/Enable_Negative&gt;
+		&lt;Override&gt;MAIN.stAxis[2].lrOverride&lt;/Override&gt;
+		&lt;JogFwd&gt;MAIN.stAxis[2].bJogForward&lt;/JogFwd&gt;
+		&lt;JogBwd&gt;MAIN.stAxis[2].bJogBackwards&lt;/JogBwd&gt;
+		&lt;MoveAbs&gt;MAIN.stAxis[2].bAbsMove&lt;/MoveAbs&gt;
+		&lt;MoveAbsPosition&gt;MAIN.stAxis[2].lrAbsPosition&lt;/MoveAbsPosition&gt;
+		&lt;MoveAbsVelocity&gt;MAIN.stAxis[2].lrAbsVelocity&lt;/MoveAbsVelocity&gt;
+		&lt;Stop&gt;MAIN.stAxis[2].bStop&lt;/Stop&gt;
+		&lt;Reset&gt;MAIN.stAxis[2].bReset&lt;/Reset&gt;
+		&lt;Home&gt;MAIN.stAxis[2].bHome&lt;/Home&gt;
+		&lt;MoveRelative&gt;MAIN.stAxis[2].bRelMove&lt;/MoveRelative&gt;
+		&lt;MoveRelDistance&gt;MAIN.stAxis[2].lrRelDistance&lt;/MoveRelDistance&gt;
+		&lt;MoveRelVelocity&gt;MAIN.stAxis[2].lrRelVelocity&lt;/MoveRelVelocity&gt;
+		&lt;MoveVelocity&gt;MAIN.stAxis[2].bMoveVelo&lt;/MoveVelocity&gt;
+		&lt;MoveVeloVelocity&gt;MAIN.stAxis[2].lrVeloVelocity&lt;/MoveVeloVelocity&gt;
+		&lt;MoveVeloDirection&gt;MAIN.stAxis[2].nVeloDirection&lt;/MoveVeloDirection&gt;
+		&lt;Ready&gt;MAIN.stAxis[2].bReady&lt;/Ready&gt;
+		&lt;ActPos&gt;MAIN.stAxis[2].lrActPos&lt;/ActPos&gt;
+		&lt;ActVelo&gt;MAIN.stAxis[2].lrActVelo&lt;/ActVelo&gt;
+		&lt;ErrorId&gt;MAIN.stAxis[2].nErrId&lt;/ErrorId&gt;
+	&lt;/Axis&gt;
+&lt;/Axes&gt;
+&lt;IO&gt;
+	&lt;Module Id="Module 1"&gt;
+		&lt;Input&gt;
+			&lt;VarName&gt;MAIN.bInput1&lt;/VarName&gt;
+			&lt;Description&gt;Input 1&lt;/Description&gt;
+		&lt;/Input&gt;
+		&lt;Input&gt;
+			&lt;VarName&gt;MAIN.bInput2&lt;/VarName&gt;
+			&lt;Description&gt;Input 2&lt;/Description&gt;
+		&lt;/Input&gt;
+		&lt;Input&gt;
+			&lt;VarName&gt;MAIN.bInput3&lt;/VarName&gt;
+			&lt;Description&gt;Input 3&lt;/Description&gt;
+		&lt;/Input&gt;
+		&lt;Input&gt;
+			&lt;VarName&gt;MAIN.bInput4&lt;/VarName&gt;
+			&lt;Description&gt;&lt;/Description&gt;
+		&lt;/Input&gt;
+		&lt;Input&gt;
+			&lt;VarName&gt;MAIN.bInput5&lt;/VarName&gt;
+			&lt;Description&gt;&lt;/Description&gt;
+		&lt;/Input&gt;
+		&lt;Output&gt;
+			&lt;VarName&gt;MAIN.bOutput1&lt;/VarName&gt;
+			&lt;Description&gt;&lt;/Description&gt;
+		&lt;/Output&gt;
+		&lt;Output&gt;
+			&lt;VarName&gt;MAIN.bOutput2&lt;/VarName&gt;
+			&lt;Description&gt;&lt;/Description&gt;
+		&lt;/Output&gt;
+		&lt;Output&gt;
+			&lt;VarName&gt;MAIN.bOutput3&lt;/VarName&gt;
+			&lt;Description&gt;&lt;/Description&gt;
+		&lt;/Output&gt;
+		&lt;Output&gt;
+			&lt;VarName&gt;MAIN.bOutput4&lt;/VarName&gt;
+			&lt;Description&gt;&lt;/Description&gt;
+		&lt;/Output&gt;
+		&lt;Output&gt;
+			&lt;VarName&gt;MAIN.bOutput5&lt;/VarName&gt;
+			&lt;Description&gt;&lt;/Description&gt;
+		&lt;/Output&gt;
+
+	&lt;/Module&gt;
+	&lt;Module Id="Module 2"&gt;
+		&lt;Input&gt;
+			&lt;VarName&gt;MAIN.bInput6&lt;/VarName&gt;
+			&lt;Description&gt;&lt;/Description&gt;
+		&lt;/Input&gt;
+		&lt;Input&gt;
+			&lt;VarName&gt;MAIN.bInput7&lt;/VarName&gt;
+			&lt;Description&gt;&lt;/Description&gt;
+		&lt;/Input&gt;
+		&lt;Input&gt;
+			&lt;VarName&gt;MAIN.bInput8&lt;/VarName&gt;
+			&lt;Description&gt;&lt;/Description&gt;
+		&lt;/Input&gt;
+		&lt;Input&gt;
+			&lt;VarName&gt;MAIN.bInput9&lt;/VarName&gt;
+			&lt;Description&gt;&lt;/Description&gt;
+		&lt;/Input&gt;
+		&lt;Input&gt;
+			&lt;VarName&gt;MAIN.bInput10&lt;/VarName&gt;
+			&lt;Description&gt;&lt;/Description&gt;
+		&lt;/Input&gt;
+		&lt;Output&gt;
+			&lt;VarName&gt;MAIN.bOutput6&lt;/VarName&gt;
+			&lt;Description&gt;&lt;/Description&gt;
+		&lt;/Output&gt;
+		&lt;Output&gt;
+			&lt;VarName&gt;MAIN.bOutput7&lt;/VarName&gt;
+			&lt;Description&gt;&lt;/Description&gt;
+		&lt;/Output&gt;
+		&lt;Output&gt;
+			&lt;VarName&gt;MAIN.bOutput8&lt;/VarName&gt;
+			&lt;Description&gt;&lt;/Description&gt;
+		&lt;/Output&gt;
+		&lt;Output&gt;
+			&lt;VarName&gt;MAIN.bOutput9&lt;/VarName&gt;
+			&lt;Description&gt;&lt;/Description&gt;
+		&lt;/Output&gt;
+		&lt;Output&gt;
+			&lt;VarName&gt;MAIN.bOutput10&lt;/VarName&gt;
+			&lt;Description&gt;&lt;/Description&gt;
+		&lt;/Output&gt;
+	&lt;/Module&gt;
+&lt;/IO&gt;
+&lt;/Config&gt;</value>
+  </data>
+  <data name="textBox3.Text" xml:space="preserve">
+    <value>3. In "AmsNetId", set the Ams Net ID of the target device. Make sure you have added ADS Route to the target system. If the target is the local system, you can leave it blank.
+
+4. If you have a debugging variable, put the name of the variable in "DebugVariable". If you don't have it, leave it blank.
+
+5. When you try to connect to the system, this program will search for all the XML files inside the "Setup" folder having the correct Ams Net ID. If the Ams Net ID is found in one of the XML files, it will take the variable configuration inside this XML file.</value>
+  </data>
+</root>

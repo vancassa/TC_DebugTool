@@ -216,6 +216,18 @@ namespace Motion_GUI
             textBox1.Width = this.Width;
         }
 
+        private void menuAbout_Click(object sender, EventArgs e)
+        {
+            frmAbout formAbout = new frmAbout();
+            formAbout.Show();
+        }
+
+        private void menuHelp_Click(object sender, EventArgs e)
+        {
+            frmHelp formHelp = new frmHelp();
+            formHelp.Show();
+        }
+
         private void cbDebugging_CheckedChanged(object sender, EventArgs e)
         {
             try
